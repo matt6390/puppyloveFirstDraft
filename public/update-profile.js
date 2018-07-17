@@ -8,9 +8,7 @@ function updateProfile() {
   //set profile
   var profileData = { age: age, gender: gender, orientation: orientation };
 
-  if (!userProfileExists()) {
-    createProfile(profileData);
-  }
+  userProfileExists(profileData);
 }
 function createProfile(profileData) {
   var newProfileId = firebase
@@ -30,7 +28,7 @@ function createProfile(profileData) {
   console.log(newUserProfileId);
 }
 
-function userProfileExists() {
+function userProfileExists(profileData) {
   firebase
     .database()
     .ref("/user-profiles/")
@@ -38,14 +36,20 @@ function userProfileExists() {
     .equalTo(firebase.auth().currentUser.uid)
     .once("value")
     .then(function(snapshot) {
-      if (snapshot.val() === null) {
-        // console.log(snapshot.val());
+      if (snapshot.val() == null) {
+        console.log("Making new profile");
+        createProfile(profileData);
         return false;
       } else {
-        // console.log(snapshot.val());
+        console.log("Already had a profile");
+        updateUserProfile(profileData);
         return true;
       }
     });
+}
+
+function updateUserProfile(profileData) {
+  return;
 }
 
 function getGender() {
