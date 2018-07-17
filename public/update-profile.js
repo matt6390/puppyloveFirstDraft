@@ -73,8 +73,6 @@ function updateUserProfile(profileData) {
       var updates = {};
       updates["/profiles/" + profileId] = profileData;
 
-      console.log(profileId);
-
       return firebase
         .database()
         .ref()

@@ -2,13 +2,18 @@
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    document.getElementById("user").innerHTML = "<h2> Logged in </h2>";
-    console.log(user);
+    document.getElementById("user").innerText =
+      "Welcome to Puppy Love " + user.displayName + ".";
+    // console.log(user);
     getUser();
   } else {
     console.log("No one is signed in...");
   }
 });
+
+function signOut() {
+  firebase.auth().signOut();
+}
 
 function accountExists() {
   var userInfo = firebase
@@ -54,19 +59,17 @@ function addUser() {
 
 function getUser() {
   // this is used to retrieve user info from the database
-  var preObject = document.getElementById("user-info");
-  document.getElementById("user-info").innerHTML = "this has been changed";
+  var ul = document.getElementById("profiles");
+  var profiles = firebase.database().ref("/profiles/");
 
-  var dbRefObject = firebase
-    .database()
-    .ref("/user-profiles/")
-    .limitToFirst(1);
-
-  dbRefObject.on("value", snap => {
-    preObject.innerText = JSON.stringify(snap.val(), null, 3);
-    // var username = (snap.val() && snap.val().email) || "Anonymous";
+  profiles.on("value", snap => {
     snap.forEach(function(child) {
-      console.log(child.val().profileId);
+      var li = document.createElement("li");
+      li.setAttribute("class", "profile");
+      ul.appendChild(li);
+      li.innerText = JSON.stringify(child.val(), null, 3);
+
+      console.log(child.val());
     });
   });
 }

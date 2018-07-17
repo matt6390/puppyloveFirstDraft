@@ -1,0 +1,41 @@
+[debug] [2018-07-17T17:05:37.670Z] ----------------------------------------------------------------------
+[debug] [2018-07-17T17:05:37.672Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2018-07-17T17:05:37.672Z] CLI Version:   3.19.3
+[debug] [2018-07-17T17:05:37.672Z] Platform:      darwin
+[debug] [2018-07-17T17:05:37.672Z] Node Version:  v8.9.4
+[debug] [2018-07-17T17:05:37.673Z] Time:          Tue Jul 17 2018 12:05:37 GMT-0500 (CDT)
+[debug] [2018-07-17T17:05:37.673Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-07-17T17:05:37.686Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-07-17T17:05:37.687Z] > authorizing via signed-in user
+[debug] [2018-07-17T17:05:37.688Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-07-17T17:05:37.688Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/Tf9MaPWRiYpuTdZkOehXknpUWQcQ-0B1FRZaYauO9nXCNQQywiQmCWlzbyWvlE-h',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Jul 17 2018 12:05:37 GMT-0500 (CDT)
+[debug] [2018-07-17T17:05:37.843Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-17T17:05:37.860Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/puppylove-a5a48  
+  
+ Tue Jul 17 2018 12:05:37 GMT-0500 (CDT)
+[debug] [2018-07-17T17:05:38.123Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-17T17:05:38.124Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/puppylove-a5a48/tokens  
+  
+ Tue Jul 17 2018 12:05:38 GMT-0500 (CDT)
+[debug] [2018-07-17T17:05:38.447Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-17T17:05:38.448Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/puppylove-a5a48  
+  
+ Tue Jul 17 2018 12:05:38 GMT-0500 (CDT)
+[debug] [2018-07-17T17:05:38.686Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/matt/Desktop/puppyLove/public'...
+[info] 
+[debug] [2018-07-17T17:05:38.687Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/986412996688/clients/_:getWebAppConfig  
+  
+ Tue Jul 17 2018 12:05:38 GMT-0500 (CDT)
+[debug] [2018-07-17T17:05:38.931Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ./
+[info] ✔  hosting: Local server: http://localhost:5000
+
