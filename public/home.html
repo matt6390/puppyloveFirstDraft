@@ -3,13 +3,164 @@
 <head>
   <title>Puppy Love</title>
   <meta charset="UTF-8">
-</head>
+  <!-- Bootstrap v4.0.0 CSS via CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  
+  <!-- Plugins required on all pages NOTE: Additional non-required plugins are loaded ondemand as of AppStrap 2.5 -->
+  
+  <!-- Theme style -->
+  <link href="assets/css/theme-style.min.css" rel="stylesheet">
+  
+  <!--Your custom colour override-->
+  <link href="#" id="colour-scheme" rel="stylesheet">
+  
+  <!-- Your custom override -->
+  <link href="assets/css/custom-style.css" rel="stylesheet">
+  
+  
+  
+  <!-- Optional: ICON SETS -->
+  <!-- Iconset: Font Awesome 5.0.4 via CDN -->
+  <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+  <!-- Iconset: flag icons - http://lipis.github.io/flag-icon-css/ -->
+  <link href="assets/plugins/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+  <!-- Iconset: ionicons - http://ionicons.com/ -->
+  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+  <!-- Iconset: Linearicons - https://linearicons.com/free -->
+  <link href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" rel="stylesheet">
+  
+  
+  <!-- Le fav and touch icons - @todo: fill with your icons or remove, try https://realfavicongenerator.net -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicons/manifest.json">
+  <link rel="shortcut icon" href="assets/favicons/favicon.ico">
+  <meta name="msapplication-config" content="assets/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  
+  
+  <!-- Google fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Rambla:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Calligraffitti' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+  
+  <!--Plugin: Retina.js (high def image replacement) - @see: http://retinajs.com/-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/retina.js/1.3.0/retina.min.js"></script>
   <!-- Connects the page to Firebase -->
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script src='initializeFirebase.js'></script>
   <script src='home.js'></script>
+</head>
 
 <body>
+
+    <!-- ======== @Region: #header ======== -->
+  <div id="header">
+    <!--Header upper region-->
+    <div class="header-upper">
+      <!-- all direct children of the .header-inner element will be vertically aligned with each other you can override all the behaviours using the flexbox utilities (flexbox.htm) All elements with .header-brand & .header-block-flex wrappers will automatically be aligned inline & vertically using flexbox, this can be overridden using the flexbox utilities (flexbox.htm) Use .header-block to stack elements within on small screen & "float" on larger screens use .order-first or/and .order-last classes to make an element show first or last within .header-inner or .headr-block elements -->
+      <div class="header-inner container">
+        <!--user menu-->
+        <div class="header-block-flex order-1 mr-auto">
+          <nav class="nav nav-sm header-block-flex">
+            <a class="nav-link d-md-none" href="login.html"><i class="fa fa-user"></i></a>
+            <a class="nav-link text-xs text-uppercase d-none d-md-block" href="#signup-modal" data-toggle="modal">Sign Up</a> <a class="nav-link text-xs text-uppercase d-none d-md-block" href="#login-modal" data-toggle="modal">Login</a> 
+          </nav>
+          <div class="header-divider header-divider-sm"></div>
+        </div>
+        <!--social media icons-->
+        <div class="nav nav-icons header-block order-12">
+          <!--@todo: replace with company social media details-->
+          <a href="#" class="nav-link"> <i class="fab fa-twitter-square icon-1x"></i> <span class="sr-only">Twitter</span> </a>
+          <a href="#" class="nav-link"> <i class="fab fa-facebook-square icon-1x"></i> <span class="sr-only">Facebook</span> </a>
+          <a href="#" class="nav-link"> <i class="fab fa-linkedin icon-1x"></i> <span class="sr-only">Linkedin</span> </a>
+          <a href="#" class="nav-link"> <i class="fab fa-google-plus-square icon-1x"></i> <span class="sr-only">Google plus</span> </a>
+        </div>
+      </div>
+    </div>
+    <div data-toggle="sticky">
+      <!--Header & Branding region-->
+      <div class="header">
+        <!-- all direct children of the .header-inner element will be vertically aligned with each other you can override all the behaviours using the flexbox utilities (flexbox.htm) All elements with .header-brand & .header-block-flex wrappers will automatically be aligned inline & vertically using flexbox, this can be overridden using the flexbox utilities (flexbox.htm) Use .header-block to stack elements within on small screen & "float" on larger screens use .order-first or/and .order-last classes to make an element show first or last within .header-inner or .headr-block elements -->
+        <div class="header-inner container">
+          <!--branding/logo -->
+          <div class="header-brand">
+            <a class="header-brand-text" href="index.html" title="Home">
+              <h1 class="h2">
+                <span class="header-brand-text-alt">Puppy</span>Love<span class="header-brand-text-alt">♥️</span>
+              </h1>
+            </a>
+            <div class="header-divider d-none d-lg-block"></div>
+            <div class="header-slogan d-none d-lg-block">Have a date with a dog</div>
+          </div>
+          <!-- other header content -->
+          <div class="header-block order-12">
+            <!-- mobile collapse menu button - data-toggle="collapse" = default BS menu - data-toggle="jpanel-menu" = jPanel Menu - data-toggle="overlay" = Overlay Menu -->
+            <a href="#top" class="btn btn-link btn-icon header-btn float-right d-lg-none" data-toggle="jpanel-menu" data-target=".navbar-main" data-direction="right"> <i class="fa fa-bars"></i> </a>
+          </div>
+          
+          <div class="navbar navbar-expand-md navbar-static-top">
+            <!--everything within this div is collapsed on mobile-->
+            <div class="navbar-main collapse">
+              <!--main navigation-->
+              <ul class="nav navbar-nav float-lg-right dropdown-effect-fade">
+                
+                <!-- Homepages -->
+                <li class="nav-item dropdown dropdown-mega-menu">
+                  <a href="#" class="nav-link dropdown-toggle" id="indexs-drop" data-toggle="dropdown" data-hover="dropdown"> <i class="fa fa-home nav-link-icon"></i> <span class="d-none">Home</span> </a>
+                  <!-- Dropdown Menu - mega menu-->
+                  <div class="dropdown-menu">
+                  </div>
+                </li>
+                
+                <!-- Pages -->
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" id="pages-drop" data-toggle="dropdown" data-hover="dropdown">Pages</a> 
+                  <!-- Menu -->
+                  <div class="dropdown-menu"> 
+                  </div>
+                </li>
+                
+                <!-- Features -->
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" id="more-drop" data-toggle="dropdown" data-hover="dropdown">Features</a> 
+                  <!-- Dropdown Menu -->
+                  <div class="dropdown-menu"> 
+                  </div>
+                </li>
+                
+                <!-- Shop megamenu -->
+                <li class="nav-item dropdown dropdown-mega-menu dropdown-mega-menu-75">
+                  <a href="#" class="nav-link dropdown-toggle" id="shop-drop" data-toggle="dropdown" data-hover="dropdown">Shop</a> 
+                  <!-- Dropdown Menu - mega menu-->
+                  <div class="dropdown-menu dropdown-menu-right">
+                  </div>
+                </li>
+                
+                <!-- Elements/shortcodes -->
+                <li class="nav-item dropdown dropdown-mega-menu active">
+                  <a href="#" class="nav-link dropdown-toggle" id="elements-drop" data-toggle="dropdown" data-hover="dropdown">Elements</a> 
+                  <!-- Dropdown Menu - mega menu-->
+                  <div class="dropdown-menu">
+                  </div>
+                </li>
+                
+                <!-- Mega menu example -->
+                <li class="nav-item dropdown dropdown-persist dropdown-mega-menu dropdown-mega-menu-50">
+                  <a href="#" class="nav-link dropdown-toggle" id="megamenu-drop" data-toggle="dropdown" data-hover="dropdown">Mega Menu</a> 
+                </li>
+              </ul>
+            </div>
+            <!--/.navbar-collapse -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <button id="new" onclick="addUser()">Add User</button>
   <button id="new" onclick="accountExists()">Account Exists?</button>
   <button id="new">
@@ -22,5 +173,92 @@
   <h4 id="user-info">Displays all users:</h4>
   <ul id='profiles'>
   </ul>
+
+
+  <footer id="footer" class="p-0">
+    <div class="container pt-6 pb-5">
+      <div class="row">
+        <div class="col-md-4">
+          <!--@todo: replace with company contact details-->
+          <h4 class="text-uppercase text-white">
+            Contact Us
+          </h4>
+          <address>
+            <ul class="list-unstyled">
+              <li>
+                <abbr title="Phone"><i class="fa fa-phone fa-fw"></i></abbr>
+                019223 8092344
+              </li>
+              <li>
+                <abbr title="Email"><i class="fa fa-envelope fa-fw"></i></abbr>
+                info@appstraptheme.com
+              </li>
+              <li>
+                <abbr title="Address"><i class="fa fa-home fa-fw"></i></abbr>
+                Sunshine House, Sunville. SUN12 8LU.
+              </li>
+            </ul>
+          </address>
+        </div>
+        <div class="col-md-4">
+          <h4 class="text-uppercase text-white">
+            About Us
+          </h4>
+          <p>This is the app that will make you love dogs more</p>
+        </div>
+        <div class="col-md-4">
+          <h4 class="text-uppercase text-white">
+            Newsletter
+          </h4>
+          <p>This button doesnt send anything to me</p>
+          <!--@todo: replace with mailchimp code-->
+          <form>
+            <div class="input-group">
+              <label class="sr-only" for="email-field">Email</label>
+              <input type="text" class="form-control" id="email-field" placeholder="Email">
+              <span class="input-group-append">
+                <button class="btn btn-primary" type="button">Go!</button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>  
+    </div>
+    <hr class="my-0 hr-blank op-2" />
+    <!--@todo: replace with company copyright details-->
+    <div class="bg-inverse-dark text-sm py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="mb-0">Site made by <a href="google.com" class="footer-link">Matthew</a> | Copyright 2018 &copy; MattyPete</p>
+          </div>
+          <div class="col-md-6">
+            <ul class="list-inline footer-links float-md-right mb-0">
+              <li class="list-inline-item"><a href="#">Terms</a></li>
+              <li class="list-inline-item"><a href="#">Privacy</a></li>
+              <li class="list-inline-item"><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <a href="#top" class="btn btn-icon btn-dark pos-fixed pos-b pos-r mr-3 mb-3 scroll-state-hidden" title="Back to top" data-scroll="scroll-state"><i class="fa fa-chevron-up"></i></a>
+      </div>
+    </div>
+  </footer>
+      <!--jQuery 3.2.1 via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Popper 1.12.9 via CDN, needed for Bootstrap Tooltips & Popovers -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    
+    <!-- Bootstrap v4.0.0 JS via CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    
+    <!-- JS plugins required on all pages NOTE: Additional non-required plugins are loaded ondemand as of AppStrap 2.5 To disable this and load plugin assets manually simple add data-plugins-manual=true to the body tag -->
+    
+    <!--Custom scripts & AppStrap API integration -->
+    <script src="assets/js/custom-script.js"></script>
+    <!--AppStrap scripts mainly used to trigger libraries/plugins -->
+    <script src="assets/js/script.min.js"></script>
 </body>
+
 </html>
