@@ -5,10 +5,21 @@ function updateProfile() {
   var gender = getGender();
   //set orientation
   var orientation = getOrientation();
+  //set bio
+  var bio = document.getElementById("bio").value;
+  //set birthday
+  var bday = document.getElementById("bday").value;
   //set profile
-  var profileData = { age: age, gender: gender, orientation: orientation };
-
-  userProfileExists(profileData);
+  var profileData = {
+    name: firebase.auth().currentUser.displayName,
+    age: age,
+    gender: gender,
+    orientation: orientation,
+    bio: bio,
+    birthday: bday
+  };
+  //create the user information, update if already existing
+  checkProfileExists(profileData);
 }
 function createProfile(profileData) {
   var newProfileId = firebase
@@ -28,7 +39,7 @@ function createProfile(profileData) {
   console.log(newUserProfileId);
 }
 
-function userProfileExists(profileData) {
+function checkProfileExists(profileData) {
   firebase
     .database()
     .ref("/user-profiles/")
@@ -37,11 +48,11 @@ function userProfileExists(profileData) {
     .once("value")
     .then(function(snapshot) {
       if (snapshot.val() == null) {
-        console.log("Making new profile");
+        // console.log("Making new profile");
         createProfile(profileData);
         return false;
       } else {
-        console.log("Already had a profile");
+        // console.log("Already had a profile");
         updateUserProfile(profileData);
         return true;
       }
@@ -49,7 +60,29 @@ function userProfileExists(profileData) {
 }
 
 function updateUserProfile(profileData) {
-  return;
+  var uid = firebase.auth().currentUser.uid;
+  var profileId = firebase
+    .database()
+    .ref("/user-profiles/")
+    .orderByChild("uid")
+    .equalTo(uid);
+  profileId.on("value", function(snapshot) {
+    snapshot.forEach(function(child) {
+      profileId = child.val().profileId;
+
+      var updates = {};
+      updates["/profiles/" + profileId] = profileData;
+
+      console.log(profileId);
+
+      return firebase
+        .database()
+        .ref()
+        .update(updates);
+    });
+  });
+
+  // console.log(profileId);
 }
 
 function getGender() {

@@ -13,24 +13,32 @@
   <!-- Insert Body -->
   <div class="profile-form">
     <form>
-      <div class="age-row">
+      <div class="row-age">
         <p>Age:</p>
         <input type="number" id="age" placeholder="Over 18 right?" step="1" />
       </div>
-      <div class="gender-row">
+      <div class="row-birthday">
+        <p>When is your birthday?</p>
+        <input type="date" id='bday'>
+      </div>
+      <div class="row-gender">
         <p>What is your gender?</p>
         <input type="radio" name="gender" value="male" checked> Male<br>
         <input type="radio" name="gender" value="female"> Female<br>
         <input type="radio" name="gender" id='other-gender-radio' value='Other' onclick='setGender()'>Other:
         <input type="text" id='other-gender-text' placeholder="Other?">
       </div>
-      <div class="orientation-row">
+      <div class="row-orientation">
         <p>What is your orientation?</p>
         <input type="radio" name="orientation" value="straight" checked> Straight<br>
         <input type="radio" name="orientation" value="gay"> Gay<br>
         <input type="radio" name="orientation" value="bisexual"> Bisexual<br>
         <input type="radio" name="orientation" id='other-orientation-radio' value="other"> Other: 
         <input type="text" id="other-orientation-text" placeholder="Other?">
+      </div>
+      <div class="row-bio">
+        <p>Tell us a little about yourself:</p>
+        <input type="text" id='bio' placeholder="About me...">
       </div>
     </form>
     <button class="btn-submit" onclick="updateProfile()">Update Profile</button>

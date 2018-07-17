@@ -59,10 +59,14 @@ function getUser() {
 
   var dbRefObject = firebase
     .database()
-    .ref()
-    .child("user-infos");
+    .ref("/user-profiles/")
+    .limitToFirst(1);
 
   dbRefObject.on("value", snap => {
     preObject.innerText = JSON.stringify(snap.val(), null, 3);
+    // var username = (snap.val() && snap.val().email) || "Anonymous";
+    snap.forEach(function(child) {
+      console.log(child.val().profileId);
+    });
   });
 }
