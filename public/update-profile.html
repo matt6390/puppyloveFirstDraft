@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Puppy Love</title>
+  <meta charset="UTF-8">
+</head>
+  <!-- Connects the page to Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script src='initializeFirebase.js'></script>
+  <script src="update-profile.js"></script>
+
+<body>
+  <!-- Insert Body -->
+  <div class="profile-form">
+    <form>
+      <div class="age-row">
+        <p>Age:</p>
+        <input type="number" id="age" placeholder="Over 18 right?" step="1" />
+      </div>
+      <div class="gender-row">
+        <p>What is your gender?</p>
+        <input type="radio" name="gender" value="male" checked> Male<br>
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="radio" name="gender" id='other-gender-radio' value='Other' onclick='setGender()'>Other:
+        <input type="text" id='other-gender-text' placeholder="Other?">
+      </div>
+      <div class="orientation-row">
+        <p>What is your orientation?</p>
+        <input type="radio" name="orientation" value="straight" checked> Straight<br>
+        <input type="radio" name="orientation" value="gay"> Gay<br>
+        <input type="radio" name="orientation" value="bisexual"> Bisexual<br>
+        <input type="radio" name="orientation" id='other-orientation-radio' value="other"> Other: 
+        <input type="text" id="other-orientation-text" placeholder="Other?">
+      </div>
+    </form>
+    <button class="btn-submit" onclick="updateProfile()">Update Profile</button>
+  </div>
+</body>
+</html>
