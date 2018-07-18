@@ -9,3 +9,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
+function signOut() {
+  firebase.auth().signOut();
+}

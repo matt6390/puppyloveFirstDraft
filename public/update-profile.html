@@ -66,7 +66,7 @@
         <div class="header-block-flex order-1 mr-auto">
           <nav class="nav nav-sm header-block-flex">
             <a class="nav-link d-md-none" href="login.html"><i class="fa fa-user"></i></a>
-            <a class="nav-link text-xs text-uppercase d-none d-md-block" href="#signup-modal" data-toggle="modal">Sign Up</a> <a class="nav-link text-xs text-uppercase d-none d-md-block" href="#login-modal" data-toggle="modal">Login</a> 
+            <a class="nav-link text-xs text-uppercase d-none d-md-block" href="index.html" data-toggle="modal">Sign Up</a> <a class="nav-link text-xs text-uppercase d-none d-md-block" href="index.html" data-toggle="modal">Login</a> 
           </nav>
           <div class="header-divider header-divider-sm"></div>
         </div>
@@ -75,7 +75,7 @@
           <!--@todo: replace with company social media details-->
           <a href="#" class="nav-link"> <i class="fab fa-twitter-square icon-1x"></i> <span class="sr-only">Twitter</span> </a>
           <a href="#" class="nav-link"> <i class="fab fa-facebook-square icon-1x"></i> <span class="sr-only">Facebook</span> </a>
-          <a href="#" class="nav-link"> <i class="fab fa-linkedin icon-1x"></i> <span class="sr-only">Linkedin</span> </a>
+          <a href="linkedin.com/in/matthew-stone-dev" class="nav-link"> <i class="fab fa-linkedin icon-1x"></i> <span class="sr-only">Linkedin</span> </a>
           <a href="#" class="nav-link"> <i class="fab fa-google-plus-square icon-1x"></i> <span class="sr-only">Google plus</span> </a>
         </div>
       </div>
@@ -109,10 +109,7 @@
                 
                 <!-- Homepages -->
                 <li class="nav-item dropdown dropdown-mega-menu">
-                  <a href="#" class="nav-link dropdown-toggle" id="indexs-drop" data-toggle="dropdown" data-hover="dropdown"> <i class="fa fa-home nav-link-icon"></i> <span class="d-none">Home</span> </a>
-                  <!-- Dropdown Menu - mega menu-->
-                  <div class="dropdown-menu">
-                  </div>
+                  <a href="home.html" class="nav-link dropdown-toggle" id="indexs-drop" data-toggle="dropdown" data-hover="dropdown"> <i class="fa fa-home nav-link-icon"></i> <span class="d-none">Home</span> </a>
                 </li>
                 
                 <!-- Pages -->
@@ -160,37 +157,39 @@
     </div>
   </div>
   <!-- Insert Body -->
-  <div class="profile-form">
-    <form>
-      <div class="row-age">
-        <p>Age:</p>
-        <input type="number" id="age" placeholder="Over 18 right?" step="1" />
-      </div>
-      <div class="row-birthday">
-        <p>When is your birthday?</p>
-        <input type="date" id='bday'>
-      </div>
-      <div class="row-gender">
-        <p>What is your gender?</p>
-        <input type="radio" name="gender" value="male" checked> Male<br>
-        <input type="radio" name="gender" value="female"> Female<br>
-        <input type="radio" name="gender" id='other-gender-radio' value='Other' onclick='setGender()'>Other:
-        <input type="text" id='other-gender-text' placeholder="Other?">
-      </div>
-      <div class="row-orientation">
-        <p>What is your orientation?</p>
-        <input type="radio" name="orientation" value="straight" checked> Straight<br>
-        <input type="radio" name="orientation" value="gay"> Gay<br>
-        <input type="radio" name="orientation" value="bisexual"> Bisexual<br>
-        <input type="radio" name="orientation" id='other-orientation-radio' value="other"> Other: 
-        <input type="text" id="other-orientation-text" placeholder="Other?">
-      </div>
-      <div class="row-bio">
-        <p>Tell us a little about yourself:</p>
-        <input type="text" id='bio' placeholder="About me...">
-      </div>
-    </form>
-    <button class="btn-submit" onclick="updateProfile()"><a href="home.html">Update Profile</a></button>
+  <div class="container">
+    <div class="profile-form">
+      <form>
+        <div class="row-age">
+          <p>Age:</p>
+          <input class="form-control" type="number" placeholder="Over 18 right?" id="example-number-input age">
+        </div>
+        <div class="row-birthday">
+          <p>When is your birthday?</p>
+          <input class="form-control" type="date" placeholder="1997-09-15" id="example-date-input dbay">
+        </div>
+        <div class="row-gender">
+          <p>What is your gender?</p>
+          <input type="radio" name="gender" value="male" checked> Male<br>
+          <input type="radio" name="gender" value="female"> Female<br>
+          <input type="radio" name="gender" id='other-gender-radio' value='Other' onclick='setGender()'>Other:
+          <input type="text" id='other-gender-text' placeholder="Other?">
+        </div>
+        <div class="row-orientation">
+          <p>What is your orientation?</p>
+          <input type="radio" name="orientation" value="straight" checked> Straight<br>
+          <input type="radio" name="orientation" value="gay"> Gay<br>
+          <input type="radio" name="orientation" value="bisexual"> Bisexual<br>
+          <input type="radio" name="orientation" id='other-orientation-radio' value="other"> Other: 
+          <input type="text" id="other-orientation-text" placeholder="Other?">
+        </div>
+        <div class="row-bio">
+          <p>Tell us a little about yourself:</p>
+          <input type="text" id='bio' placeholder="About me...">
+        </div>
+      </form>
+      <a href="home.html" class="mb-1 btn btn-green btn-invert" onclick="updateProfile()" role="button" aria-pressed="true">Update Profile</a>
+    </div>
   </div>
 
   <footer id="footer" class="p-0">

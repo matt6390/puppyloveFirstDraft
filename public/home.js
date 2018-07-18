@@ -1,3 +1,4 @@
+var PROFILES = [];
 // Display user info when logged in
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -5,14 +6,24 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById("user").innerText =
       "Welcome to Puppy Love " + user.displayName + ".";
     // console.log(user);
-    getUser();
+    getUsers();
   } else {
     console.log("No one is signed in...");
   }
 });
 
-function signOut() {
-  firebase.auth().signOut();
+function nextPerson() {
+  var profiles = document.getElementsByClassName("profile");
+
+  console.log(PROFILES);
+}
+
+function orderProfiles() {
+  console.log("before loop");
+  for (var i = 3; i <= 0; i--) {
+    PROFILES.push("yo");
+  }
+  console.log(PROFILES);
 }
 
 function accountExists() {
@@ -57,19 +68,21 @@ function addUser() {
     .update(updates);
 }
 
-function getUser() {
+function getUsers() {
   // this is used to retrieve user info from the database
   var ul = document.getElementById("profiles");
   var profiles = firebase.database().ref("/profiles/");
 
   profiles.on("value", snap => {
     snap.forEach(function(child) {
-      var li = document.createElement("li");
-      li.setAttribute("class", "profile");
-      ul.appendChild(li);
-      li.innerText = JSON.stringify(child.val(), null, 3);
-
+      var user = child.val();
+      PROFILES.push(user);
+      // var li = document.createElement("li");
+      // li.setAttribute("class", "profile");
+      // ul.appendChild(li);
+      // li.innerText = ;
       console.log(child.val());
     });
+    orderProfiles();
   });
 }

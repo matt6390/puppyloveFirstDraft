@@ -75,9 +75,11 @@
       // The start method will wait until the DOM is loaded.
       ui.start('#firebaseui-auth-container', uiConfig);
     </script>
-
+  
 </head>
+
 <body>
+
   <div id="header">
     <!--Header upper region-->
     <div class="header-upper">
@@ -87,7 +89,7 @@
         <div class="header-block-flex order-1 mr-auto">
           <nav class="nav nav-sm header-block-flex">
             <a class="nav-link d-md-none" href="login.html"><i class="fa fa-user"></i></a>
-            <a class="nav-link text-xs text-uppercase d-none d-md-block" href="#signup-modal" data-toggle="modal">Sign Up</a> <a class="nav-link text-xs text-uppercase d-none d-md-block" href="#login-modal" data-toggle="modal">Login</a> 
+            <a class="nav-link text-xs text-uppercase" href="index.html">SignUp</a><a class="nav-link text-xs text-uppercase" href="index.html">Login</a><a class="nav-link text-xs text-uppercase" href="index.html" onclick="signOut()">SignOut</a>
           </nav>
           <div class="header-divider header-divider-sm"></div>
         </div>
@@ -96,7 +98,7 @@
           <!--@todo: replace with company social media details-->
           <a href="#" class="nav-link"> <i class="fab fa-twitter-square icon-1x"></i> <span class="sr-only">Twitter</span> </a>
           <a href="#" class="nav-link"> <i class="fab fa-facebook-square icon-1x"></i> <span class="sr-only">Facebook</span> </a>
-          <a href="#" class="nav-link"> <i class="fab fa-linkedin icon-1x"></i> <span class="sr-only">Linkedin</span> </a>
+          <a href="linkedin.com/in/matthew-stone-dev" class="nav-link"> <i class="fab fa-linkedin icon-1x"></i> <span class="sr-only">Linkedin</span> </a>
           <a href="#" class="nav-link"> <i class="fab fa-google-plus-square icon-1x"></i> <span class="sr-only">Google plus</span> </a>
         </div>
       </div>
@@ -130,10 +132,7 @@
                 
                 <!-- Homepages -->
                 <li class="nav-item dropdown dropdown-mega-menu">
-                  <a href="#" class="nav-link dropdown-toggle" id="indexs-drop" data-toggle="dropdown" data-hover="dropdown"> <i class="fa fa-home nav-link-icon"></i> <span class="d-none">Home</span> </a>
-                  <!-- Dropdown Menu - mega menu-->
-                  <div class="dropdown-menu">
-                  </div>
+                  <a href="home.html" class="nav-link dropdown-toggle" id="indexs-drop" data-toggle="dropdown" data-hover="dropdown"> <i class="fa fa-home nav-link-icon"></i> <span class="d-none">Home</span> </a>
                 </li>
                 
                 <!-- Pages -->
@@ -272,6 +271,7 @@
     <script src="assets/js/custom-script.js"></script>
     <!--AppStrap scripts mainly used to trigger libraries/plugins -->
     <script src="assets/js/script.min.js"></script>
+
 </body>
 
 </html>
