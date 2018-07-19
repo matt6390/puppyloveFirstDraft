@@ -106,36 +106,6 @@ function accountExists() {
   });
 }
 
-function addUser() {
-  //testing to see if I can add to a part of the database
-  // console.log("Function is firing");
-
-  // must define what is basically the params
-  var userData = {
-    user_id: "UiZRsi5XOzNjsHxwb7ONMGymQy33",
-    name: "Matthew",
-    email: "matthew@gmail.com"
-  };
-
-  // now we get a key/id for the new user
-  var newUserKey = firebase
-    .database()
-    .ref()
-    .child("user-infos")
-    .push().key;
-
-  console.log(newUserKey);
-
-  // update the new, empty user that has just been created
-  var updates = {};
-  updates["user-infos/" + newUserKey] = userData;
-
-  return firebase
-    .database()
-    .ref()
-    .update(updates);
-}
-
 function getUsers() {
   // this is used to retrieve user info from the database
   var ul = document.getElementById("profiles");
@@ -143,8 +113,7 @@ function getUsers() {
 
   profiles.on("value", snap => {
     snap.forEach(function(child) {
-      var user = child.val();
-      console.log(child.key);
+      var user = child.key;
       PROFILES.push(user);
       // var li = document.createElement("li");
       // li.setAttribute("class", "profile");

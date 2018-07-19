@@ -16,7 +16,9 @@ function updateProfile() {
     gender: gender,
     orientation: orientation,
     bio: bio,
-    birthday: bday
+    birthday: bday,
+    profilePicUrl:
+      "http://www.infraco.co.za/corporateold/Picture/_w/missing-profile-photo_png.jpg"
   };
   //create the user information, update if already existing
   checkProfileExists(profileData);
@@ -62,24 +64,6 @@ function createStorageSlot(file) {
   });
 }
 
-function createProfile(profileData) {
-  var newProfileId = firebase
-    .database()
-    .ref()
-    .child("profiles")
-    .push(profileData).key;
-  var userProfileData = {
-    uid: firebase.auth().currentUser.uid,
-    profileId: newProfileId
-  };
-  var newUserProfileId = firebase
-    .database()
-    .ref()
-    .child("user-profiles")
-    .push(userProfileData).key;
-  console.log(newUserProfileId);
-}
-
 function checkProfileExists(profileData) {
   firebase
     .database()
@@ -100,7 +84,26 @@ function checkProfileExists(profileData) {
     });
 }
 
+function createProfile(profileData) {
+  var newProfileId = firebase
+    .database()
+    .ref()
+    .child("profiles")
+    .push(profileData).key;
+  var userProfileData = {
+    uid: firebase.auth().currentUser.uid,
+    profileId: newProfileId
+  };
+  var newUserProfileId = firebase
+    .database()
+    .ref()
+    .child("user-profiles")
+    .push(userProfileData).key;
+  console.log(newUserProfileId);
+}
+
 function updateUserProfile(profileData) {
+  delete profileData.profilePicUrl;
   var uid = firebase.auth().currentUser.uid;
   var profileId = firebase
     .database()
