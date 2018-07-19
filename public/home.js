@@ -5,7 +5,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     document.getElementById("user").innerText =
       "Welcome to Puppy Love " + user.displayName + ".";
-    console.log(user);
+    // console.log(user);
     getUsers();
   } else {
     console.log("No one is signed in...");
@@ -14,13 +14,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 function nextPerson() {
   var profiles = document.getElementsByClassName("profile");
-
-  console.log(PROFILES);
 }
 
 function getProfileInfo(index, key) {
   index = index - 1;
-  console.log(PROFILES[index][key]);
+  // console.log(PROFILES[index][key]);
   return PROFILES[index][key];
 }
 
@@ -28,11 +26,22 @@ function createProfileCards() {
   var length = PROFILES.length;
 
   while (length > 0) {
+    var test = firebase
+      .database()
+      .ref("/profiles/")
+      .orderByValue()
+      // .equalTo(getProfileInfo(length, "bio"))
+      .once("value")
+      .then(function(snapshot) {
+        console.log(snapshot.val());
+      });
+
     //create card
     var div = document.createElement("div");
     div.setAttribute("class", "card");
 
     //create card picture
+    // var imgOwnerId = something;
     var img = document.createElement("img");
     img.setAttribute("class", "card-img-top");
     img.setAttribute("class", "profile-img");
@@ -41,7 +50,9 @@ function createProfileCards() {
     img.setAttribute("width", "200");
     img.setAttribute(
       "src",
-      "http://www.irdconline.com/wp-content/uploads/2018/05/person-placeholder.jpg"
+      "https://firebasestorage.googleapis.com/v0/b/puppylove-a5a48.appspot.com/o/users%2F" +
+        firebase.auth().currentUser.uid +
+        "%2Fimages%2FprofilePic?alt=media&token=6a30de2c-6e90-479e-93f5-e859a2ce52de"
     );
     div.appendChild(img);
 

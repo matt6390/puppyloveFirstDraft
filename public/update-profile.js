@@ -21,6 +21,53 @@ function updateProfile() {
   //create the user information, update if already existing
   checkProfileExists(profileData);
 }
+
+function isFileThere() {
+  var file = document.getElementById("userProfilePic").files[0];
+  if (file) {
+    console.log(file.name);
+    createStorageSlot(file);
+    return true;
+  } else {
+    console.log("No file selected yet");
+    return false;
+  }
+}
+
+function createStorageSlot(file) {
+  var uid = firebase.auth().currentUser.uid;
+  // Create a root reference
+  var storageRef = firebase.storage().ref();
+
+  // Create a reference to the picture
+  var fileRef = storageRef.child("profilePic");
+  console.log(fileRef);
+
+  // Create a reference to 'images/file'
+  var fileImagesRef = storageRef.child(
+    "users/" + uid + "/images/" + "profilePic"
+  );
+  console.log(fileImagesRef);
+
+  var progress = 0;
+  while (progress < 100) {
+    document
+      .getElementById("upload-progress")
+      .setAttribute("style", "width: " + progress + "%");
+    progress++;
+  }
+
+  //save the picture to storage
+  fileImagesRef.put(file).then(function(snapshot) {
+    //get downloadURL, and then create firebase/database slot to get the pic
+
+    fileImagesRef.getDownloadURL().then(function(url) {
+      document.getElementById("profile-pic").src = url;
+    });
+    console.log(snapshot);
+  });
+}
+
 function createProfile(profileData) {
   var newProfileId = firebase
     .database()
@@ -94,6 +141,16 @@ function getGender() {
     }
   }
   return gender;
+}
+
+function changeOtherGenderRadioButton() {
+  var button = document.getElementById("other-gender-radio");
+  button.checked = true;
+}
+
+function changeOtherOrientationRadioButton() {
+  var button = document.getElementById("other-orientation-radio");
+  button.checked = true;
 }
 
 function getOrientation() {
