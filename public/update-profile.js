@@ -39,29 +39,23 @@ function createStorageSlot(file) {
   // Create a root reference
   var storageRef = firebase.storage().ref();
 
-  // Create a reference to the picture
-  var fileRef = storageRef.child("profilePic");
-  console.log(fileRef);
-
   // Create a reference to 'images/file'
-  var fileImagesRef = storageRef.child(
-    "users/" + uid + "/images/" + "profilePic"
-  );
+  var fileImagesRef = storageRef.child("pictures/profilePics/" + uid);
   console.log(fileImagesRef);
-
-  var progress = 0;
-  while (progress < 100) {
-    document
-      .getElementById("upload-progress")
-      .setAttribute("style", "width: " + progress + "%");
-    progress++;
-  }
 
   //save the picture to storage
   fileImagesRef.put(file).then(function(snapshot) {
     //get downloadURL, and then create firebase/database slot to get the pic
-
+    var progress = 0;
+    while (progress < 100) {
+      document
+        .getElementById("upload-progress")
+        .setAttribute("style", "width: " + progress + "%");
+      progress++;
+    }
     fileImagesRef.getDownloadURL().then(function(url) {
+      var profileData = { profilePicUrl: url };
+      updateUserProfile(profileData);
       document.getElementById("profile-pic").src = url;
     });
     console.log(snapshot);

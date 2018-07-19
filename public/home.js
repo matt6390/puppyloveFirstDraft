@@ -33,7 +33,7 @@ function createProfileCards() {
       // .equalTo(getProfileInfo(length, "bio"))
       .once("value")
       .then(function(snapshot) {
-        console.log(snapshot.val());
+        // console.log(snapshot.exportVal());
       });
 
     //create card
@@ -50,9 +50,9 @@ function createProfileCards() {
     img.setAttribute("width", "200");
     img.setAttribute(
       "src",
-      "https://firebasestorage.googleapis.com/v0/b/puppylove-a5a48.appspot.com/o/users%2F" +
+      "https://firebasestorage.googleapis.com/v0/b/puppylove-a5a48.appspot.com/o/pictures%2FprofilePics%2F" +
         firebase.auth().currentUser.uid +
-        "%2Fimages%2FprofilePic?alt=media&token=6a30de2c-6e90-479e-93f5-e859a2ce52de"
+        "?alt=media&token=1e0d1e10-14fa-4ee9-9b51-2843af47a18b"
     );
     div.appendChild(img);
 
@@ -144,6 +144,7 @@ function getUsers() {
   profiles.on("value", snap => {
     snap.forEach(function(child) {
       var user = child.val();
+      console.log(child.key);
       PROFILES.push(user);
       // var li = document.createElement("li");
       // li.setAttribute("class", "profile");
